@@ -3,7 +3,7 @@ import LandingPage from "."
 
 const page = () => {
   return (
-    <div>
+    <div >
         <LandingPage/>
     </div>
   )

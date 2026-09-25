@@ -57,7 +57,8 @@ const LandingPage = () => {
 
           const data: SolarData = await response.json();
 
-          console.log("Backend response:", data);
+          console.log("Backend response:", data.solar[0]);
+          localStorage.setItem("solarData", JSON.stringify(data.solar[0]));
 
           setSolarData(data);
           setSelectedDay(0);
@@ -103,34 +104,16 @@ const LandingPage = () => {
   const selectedSolarDay = solarData?.solar?.[selectedDay] ?? null;
 
   return (
-    <main className="relative min-h-screen overflow-hidden bg-slate-950 text-white">
+    <main className="relative pt-15 min-h-screen overflow-hidden  text-white">
       {/* Background decoration */}
-      <div
-        aria-hidden="true"
-        className="pointer-events-none absolute inset-0 overflow-hidden"
-      >
-        <div className="absolute -right-40 -top-40 h-96 w-96 rounded-full bg-yellow-400/10 blur-3xl" />
-        <div className="absolute -left-40 top-1/2 h-96 w-96 rounded-full bg-orange-500/10 blur-3xl" />
-        <div className="absolute bottom-0 right-1/3 h-72 w-72 rounded-full bg-yellow-500/5 blur-3xl" />
-      </div>
+     
 
       <div className="relative mx-auto max-w-6xl px-4 py-8 sm:px-6 sm:py-10 lg:px-8 lg:py-14">
         {/* ================= HEADER ================= */}
         <header className="mb-10 flex flex-col gap-8 lg:mb-12 lg:flex-row lg:items-end lg:justify-between">
           <div className="max-w-3xl">
             {/* Brand */}
-            <div className="mb-6 flex items-center gap-3">
-              <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-yellow-400 shadow-lg shadow-yellow-400/20">
-                <span
-                  aria-hidden="true"
-                  className="h-4 w-4 rounded-full bg-slate-950"
-                />
-              </div>
-
-              <span className="text-sm font-bold uppercase tracking-[0.18em] text-yellow-400">
-                Solar Guide
-              </span>
-            </div>
+          
 
             {/* Heading */}
             <h1 className="text-4xl font-bold leading-tight tracking-tight sm:text-5xl lg:text-6xl">
