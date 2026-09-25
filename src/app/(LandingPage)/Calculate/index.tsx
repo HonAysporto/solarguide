@@ -1,7 +1,7 @@
 
 "use client";
 
-import { useMemo, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import { calculateSolarSystem } from "@/lib/solar";
 
 interface  Appliance {
@@ -33,7 +33,15 @@ const applianceOptions = [
 export default function Calculate() {
     const [systemResult, setSystemResult] =
   useState<ReturnType<typeof calculateSolarSystem> | null>(null);
-    const [solarData, setsolarData] = useState(JSON.parse(localStorage.getItem("solarData") || "{}"));
+   const [solarData, setSolarData] = useState({});
+
+useEffect(() => {
+  const storedData = localStorage.getItem("solarData");
+
+  if (storedData) {
+    setSolarData(JSON.parse(storedData));
+  }
+}, []);
 
   const [appliances, setAppliances] = useState<Appliance[]>([
     {
