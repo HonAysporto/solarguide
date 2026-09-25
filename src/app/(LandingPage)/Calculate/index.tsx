@@ -12,6 +12,11 @@ interface  Appliance {
   hours: number;
 }
 
+interface SolarData {
+  solarRadiation: number;
+}
+
+
 const applianceOptions = [
   { name: "Refrigerator", wattage: 150 },
   { name: "Freezer", wattage: 150 },
@@ -33,7 +38,8 @@ const applianceOptions = [
 export default function Calculate() {
     const [systemResult, setSystemResult] =
   useState<ReturnType<typeof calculateSolarSystem> | null>(null);
-   const [solarData, setSolarData] = useState({});
+const [solarData, setSolarData] =
+  useState<SolarData | null>(null);
 
 useEffect(() => {
   const storedData = localStorage.getItem("solarData");
