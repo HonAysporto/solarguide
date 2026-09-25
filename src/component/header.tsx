@@ -74,7 +74,7 @@ export default function Header() {
                   </span>
 
                   <span className="hidden rounded-full border border-yellow-400/20 bg-yellow-400/10 px-2 py-0.5 text-[9px] font-semibold uppercase tracking-wider text-yellow-300 sm:inline-block">
-                    Beta
+                    Tazer
                   </span>
                 </div>
 

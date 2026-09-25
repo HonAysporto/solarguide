@@ -131,7 +131,7 @@ const LandingPage = () => {
           <button
             onClick={getLocation}
             disabled={loading}
-            className="inline-flex min-h-12 items-center justify-center gap-3 rounded-xl bg-yellow-400 px-6 py-3.5 text-sm font-bold text-slate-950 shadow-lg shadow-yellow-400/10 transition duration-200 hover:bg-yellow-300 focus:outline-none focus:ring-2 focus:ring-yellow-400 focus:ring-offset-2 focus:ring-offset-slate-950 disabled:cursor-not-allowed disabled:opacity-60"
+            className="inline-flex min-h-12 cursor-pointer items-center justify-center gap-3 rounded-xl bg-yellow-400 px-6 py-3.5 text-sm font-bold text-slate-950 shadow-lg shadow-yellow-400/10 transition duration-200 hover:bg-yellow-300 focus:outline-none focus:ring-2 focus:ring-yellow-400 focus:ring-offset-2 focus:ring-offset-slate-950 disabled:cursor-not-allowed disabled:opacity-60"
           >
             {loading ? (
               <>

@@ -1,7 +1,7 @@
 
 "use client";
 
-import { useEffect, useMemo, useState } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 import { calculateSolarSystem } from "@/lib/solar";
 
 interface  Appliance {
@@ -48,6 +48,7 @@ useEffect(() => {
     setSolarData(JSON.parse(storedData));
   }
 }, []);
+const resultRef = useRef<HTMLElement | null>(null);
 
   const [appliances, setAppliances] = useState<Appliance[]>([
     {
@@ -157,6 +158,12 @@ const removeAppliance = (id:number) => {
   );
 
   setSystemResult(result);
+  setTimeout(() => {
+    resultRef.current?.scrollIntoView({
+      behavior: "smooth",
+      block: "start",
+    });
+  }, 100);
 };
 
   return (
@@ -169,7 +176,7 @@ const removeAppliance = (id:number) => {
         {/* Intro */}
         <div className="max-w-3xl">
           <p className="mb-3 text-sm font-medium uppercase tracking-wider text-yellow-400">
-            Step 1
+            
           </p>
 
           <h1 className="text-3xl font-bold tracking-tight sm:text-4xl lg:text-5xl">
@@ -465,7 +472,7 @@ const removeAppliance = (id:number) => {
         </div>
 
              {systemResult && (
-  <section className="mt-8 rounded-3xl border border-white/10 bg-slate-900 p-6 shadow-xl">
+  <section ref={resultRef} className="mt-8 rounded-3xl border border-white/10 bg-slate-900 p-6 shadow-xl">
     <div className="mb-6">
       <p className="text-sm font-medium text-amber-400">
         SYSTEM SIZING
